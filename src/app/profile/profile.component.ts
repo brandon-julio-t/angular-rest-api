@@ -8,10 +8,10 @@ import { User } from '../user';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  user: User | null;
+  user: User;
 
   constructor(private authService: AuthService) {
-    this.user = authService.user();
+    this.user = authService.user() as User;
   }
 
   ngOnInit(): void {}

@@ -7,7 +7,7 @@ import { Post } from '../post';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-  @Input() post?: Post;
+  @Input() post: Post = { id: 0, title: '', body: '', userId: 0 };
   @Output() update = new EventEmitter<number>();
   @Output() delete = new EventEmitter<number>();
   isSubmitting = false;
@@ -17,13 +17,13 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {}
 
   onUpdate(): void {
-    const id = this.post?.id;
+    const id = this.post.id;
     this.update.emit(id);
   }
 
   onDelete(): void {
     this.isSubmitting = true;
-    const id = this.post?.id;
+    const id = this.post.id;
     this.delete.emit(id);
   }
 }
