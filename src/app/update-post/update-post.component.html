@@ -1,0 +1,52 @@
+<mat-progress-bar *ngIf="isSubmitting" mode="indeterminate"></mat-progress-bar>
+
+<h2>Update Post</h2>
+
+<form [formGroup]="updateTodoForm">
+  <mat-form-field>
+    <mat-label>
+      <label for="update-todo-title">Title</label>
+    </mat-label>
+    <input
+      formControlName="title"
+      id="update-todo-title"
+      matInput
+      required
+      type="text"
+    />
+    <mat-error *ngIf="updateTodoForm.controls.title.hasError('required')"
+      >Title is required</mat-error
+    >
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>
+      <label for="update-todo-body">Body</label>
+    </mat-label>
+    <textarea
+      formControlName="body"
+      id="update-todo-body"
+      matInput
+      required
+      type="text"
+      >{{ data.body }}</textarea
+    >
+    <mat-error *ngIf="updateTodoForm.controls.body.hasError('required')"
+      >Body is required</mat-error
+    >
+  </mat-form-field>
+
+  <br />
+
+  <button
+    (click)="onSubmit()"
+    class="w-full"
+    color="primary"
+    mat-raised-button
+    type="submit"
+  >
+    Submit
+  </button>
+</form>

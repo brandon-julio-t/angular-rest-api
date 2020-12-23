@@ -1,0 +1,33 @@
+<div class="center-container">
+  <mat-card class="w-full">
+    <mat-card-title>Login</mat-card-title>
+
+    <form (ngSubmit)="doLogin()" [formGroup]="loginForm">
+      <mat-card-content>
+        <mat-form-field class="w-full">
+          <mat-label>
+            <label for="email">Email</label>
+          </mat-label>
+          <input formControlName="email" id="email" matInput type="text" />
+          <mat-error *ngIf="loginForm.controls.email.hasError('required')"
+            >Email is required</mat-error
+          >
+          <mat-error *ngIf="loginForm.controls.email.hasError('email')"
+            >Email is invalid</mat-error
+          >
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button class="w-full" color="primary" mat-raised-button type="submit">
+          Login
+        </button>
+      </mat-card-actions>
+    </form>
+
+    <mat-progress-bar
+      *ngIf="isSubmitting"
+      mode="indeterminate"
+    ></mat-progress-bar>
+  </mat-card>
+</div>

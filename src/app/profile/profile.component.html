@@ -1,0 +1,81 @@
+<h2 class="text-center">Profile</h2>
+<mat-grid-list cols="2" rowHeight="50px">
+  <mat-grid-tile>Name</mat-grid-tile>
+  <mat-grid-tile>
+    {{ user.name }}
+  </mat-grid-tile>
+  <mat-grid-tile>ID</mat-grid-tile>
+  <mat-grid-tile>
+    {{ user.id }}
+  </mat-grid-tile>
+  <mat-grid-tile>Email</mat-grid-tile>
+  <mat-grid-tile>
+    {{ user.email }}
+  </mat-grid-tile>
+  <mat-grid-tile>Username</mat-grid-tile>
+  <mat-grid-tile>
+    {{ user.username }}
+  </mat-grid-tile>
+  <mat-grid-tile>Phone</mat-grid-tile>
+  <mat-grid-tile>
+    {{ user.phone }}
+  </mat-grid-tile>
+  <mat-grid-tile>Website</mat-grid-tile>
+  <mat-grid-tile>
+    <a
+      href="https://{{ user.website }}"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {{ user.website }}
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<h2 class="text-center">Address</h2>
+<mat-grid-list cols="2" rowHeight="50px">
+  <mat-grid-tile>Street</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.address.street }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile>Suite</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.address.suite }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile>City</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.address.city }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile>Zipcode</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.address.zipcode }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile>Latitude</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.address.geo.lat }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile>Longitude</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.address.geo.lng }}</p>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<h2 class="text-center">Company</h2>
+<mat-grid-list cols="2" rowHeight="50px">
+  <mat-grid-tile>Name</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.company.name }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile>Catch Phrase</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.company.catchPhrase }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile>BS</mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{ user.company.bs }}</p>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<button mat-raised-button color="primary" class="w-full" (click)="onLogout()">
+  Logout
+</button>

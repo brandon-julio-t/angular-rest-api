@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-progress-bar
+    *ngIf="isSubmitting"
+    mode="indeterminate"
+  ></mat-progress-bar>
+  <br />
+  <mat-card-title>{{ post.title }}</mat-card-title>
+  <mat-card-content>{{ post.body }}</mat-card-content>
+  <mat-card-actions>
+    <button (click)="onUpdate()" mat-button>Update</button>
+    <button (click)="onDelete()" color="warn" mat-button>Delete</button>
+  </mat-card-actions>
+</mat-card>

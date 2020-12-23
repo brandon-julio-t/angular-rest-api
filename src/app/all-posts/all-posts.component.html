@@ -1,0 +1,18 @@
+<mat-spinner
+  *ngIf="posts.length <= 0; else allPosts"
+  class="w-full mx-auto"
+></mat-spinner>
+<ng-template #allPosts>
+  <app-add-post></app-add-post>
+
+  <mat-grid-list cols="1" rowHeight="200px">
+    <mat-grid-tile *ngFor="let post of posts">
+      <app-post
+        (delete)="deletePost($event)"
+        (update)="updatePost($event)"
+        *ngIf="post"
+        [post]="post"
+      ></app-post>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
