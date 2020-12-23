@@ -10,11 +10,11 @@
           </mat-label>
           <input formControlName="email" id="email" matInput type="text" />
           <mat-error *ngIf="loginForm.controls.email.hasError('required')"
-            >Email is required</mat-error
-          >
+            >Email is required
+          </mat-error>
           <mat-error *ngIf="loginForm.controls.email.hasError('email')"
-            >Email is invalid</mat-error
-          >
+            >Email is invalid
+          </mat-error>
         </mat-form-field>
       </mat-card-content>
 
@@ -29,5 +29,16 @@
       *ngIf="isSubmitting"
       mode="indeterminate"
     ></mat-progress-bar>
+
+    <small>
+      Login with one of the emails provided in at
+      <a
+        href="https://jsonplaceholder.typicode.com/users"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        https://jsonplaceholder.typicode.com/users
+      </a>
+    </small>
   </mat-card>
 </div>

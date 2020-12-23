@@ -23,6 +23,10 @@ export class AllPostsComponent implements OnInit {
     this.postService.getAll().subscribe((posts) => (this.posts = posts));
   }
 
+  onSaved(post: Post): void {
+    this.posts = [post, ...this.posts];
+  }
+
   deletePost(id: number): void {
     this.postService.delete(id).subscribe(() => {
       this.posts = this.posts.filter((post) => post.id !== id);

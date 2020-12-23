@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../post.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Post } from '../post';
 
 @Component({
   selector: 'app-add-post',
@@ -9,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./add-post.component.scss'],
 })
 export class AddPostComponent implements OnInit {
+  @Output() saved = new EventEmitter<Post>();
   todoForm: FormGroup;
   isSubmitting = false;
 
@@ -33,10 +35,11 @@ export class AddPostComponent implements OnInit {
 
     this.isSubmitting = true;
 
-    this.postService.save(title.value, body.value).subscribe(() => {
+    this.postService.save(title.value, body.value).subscribe((post) => {
       this.snackBar.open('Post saved', 'Close', { duration: 4000 });
       this.todoForm.reset();
       this.isSubmitting = false;
+      this.saved.emit(post);
     });
   }
 }
